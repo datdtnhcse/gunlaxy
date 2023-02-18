@@ -107,7 +107,6 @@ def draw_space(BG_SPR, value):
 def draw_spaceship(ss, FIGHTER_SPR, value):
     if value[0] >= len(FIGHTER_SPR):
         value[0] = 0
-    print(value[0])
     image = FIGHTER_SPR[value[0]]
     
     WIN.blit(image, (ss.x, ss.y))
@@ -209,7 +208,7 @@ def main():
             # quit game
             if event.type == pygame.QUIT:
                 run = False
-                pygame.quit()
+                
 
             # keydown
             if event.type == pygame.KEYDOWN:
@@ -234,12 +233,12 @@ def main():
         # winner appears
         winner_text = ""
         if red_health <= 0:
-            winner_text = "Red Wins!"
+            winner_text = "Bomber Wins!"
         if yellow_health <= 0:
-            winner_text = "Yellow Wins!"
+            winner_text = "Fighter Wins!"
         if winner_text != "":
             draw_winner(winner_text)
-            break        
+            main()     
         
         # movement of spaceship
         keys_pressed = pygame.key.get_pressed()
@@ -253,7 +252,7 @@ def main():
         draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, value_bul, value_big, value_bg, value_fighter, value_bomber)
         
     # return main() when the game is over
-    main()
+    pygame.quit()
     
 if __name__ == "__main__":
     main()
