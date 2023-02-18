@@ -29,23 +29,58 @@ MAX_BULLETS = 5
 MAX_HEALTH = 10
 
 # spaceship size
-SPACESHIP_WIDTH = 70
-SPACESHIP_HEIGHT = 60
+SPACESHIP_WIDTH = 60
+SPACESHIP_HEIGHT = 50
 
-# sprite of spaceship
-YELLOW_SPACESHIP = pygame.image.load(os.path.join("assets", "spaceship_yellow.png"))
-YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACESHIP, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)
-RED_SPACESHIP = pygame.image.load(os.path.join("assets", "spaceship_red.png"))
-RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
-SPACE = pygame.transform.scale(pygame.image.load(os.path.join("assets", "space.png")), (WIDTH, HEIGHT))
+# red bullet size
+BULLET_WIDTH = 20
+BULLET_HEIGHT = 60
+
+# sprite
+BULLET_SPR = [pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bullet", "bullet1.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 90),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bullet", "bullet2.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 90),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bullet", "bullet3.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 90)]
+BIGBULLET_SPR = [pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bigbullet", "bigbullet1.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 270),
+                 pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bigbullet", "bigbullet2.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 270),
+                 pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bigbullet", "bigbullet3.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 270),
+                 pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bigbullet", "bigbullet4.png")), (BULLET_WIDTH, BULLET_HEIGHT)), 270)]
+BG_SPR = [pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg1.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg2.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg3.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg4.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg5.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg6.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg7.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg8.png")), (WIDTH, HEIGHT)),
+          pygame.transform.scale(pygame.image.load(os.path.join("assets", "background", "bg9.png")), (WIDTH, HEIGHT))]
+FIGHTER_SPR = [pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine1.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine2.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine3.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine4.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine5.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine6.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine7.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine8.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine9.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90),
+               pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "fighter_engine", "fighter_engine10.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)]
+BOMBER_SPR = [pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber1.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber2.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber3.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber4.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber5.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber6.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber7.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber8.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber9.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270),
+              pygame.transform.rotate(pygame.transform.scale(pygame.image.load(os.path.join("assets", "bomber", "bomber10.png")), (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)]
 
 # event
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
 # sound
-BULLET_HIT_SOUND = pygame.mixer.Sound(os.path.join("assets", "hit.wav"))
-BULLET_FIRE_SOUND = pygame.mixer.Sound(os.path.join("assets", "gunfire.wav"))
+BULLET_HIT_SOUND = pygame.mixer.Sound(os.path.join("assets", "audio", "hit.wav"))
+BULLET_FIRE_SOUND = pygame.mixer.Sound(os.path.join("assets", "audio", "gunfire.wav"))
 
 def draw_winner(winner_text):
     draw_text = WINNER_FONT.render(winner_text, 1, WHITE)
@@ -53,22 +88,54 @@ def draw_winner(winner_text):
     pygame.display.update()
     pygame.time.delay(3000)
     
+def draw_bullet(bullet, BULLET_SPR, value):
+    if value[0] >= len(BULLET_SPR):
+        value[0] = 0
+    image = BULLET_SPR[value[0]]
+   
+    WIN.blit(image, (bullet.x - 7, bullet.y - 7))
+    value[0] += 1
     
-def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
-    WIN.blit(SPACE, (0, 0))
+def draw_space(BG_SPR, value):
+    if value[0] >= len(BG_SPR):
+        value[0] = 0
+    image = BG_SPR[value[0]]
+   
+    WIN.blit(image, (0, 0))
+    value[0] += 1
+    
+def draw_spaceship(ss, FIGHTER_SPR, value):
+    if value[0] >= len(FIGHTER_SPR):
+        value[0] = 0
+    print(value[0])
+    image = FIGHTER_SPR[value[0]]
+    
+    WIN.blit(image, (ss.x, ss.y))
+    value[0] += 1
+
+def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, value_bul, value_big, value_bg, value_fighter, value_bomber):
+    
+    # draw the window
+    draw_space(BG_SPR, value_bg)
     pygame.draw.rect(WIN, BLACK, BORDER)
-    WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
-    WIN.blit(RED_SPACESHIP, (red.x, red.y))
     
+    # draw the spaceship
+    draw_spaceship(yellow, BOMBER_SPR, value_bomber)
+    draw_spaceship(red, FIGHTER_SPR, value_fighter)
+    
+    # draw text of health
     red_health_text = HEALTH_FONT.render("Health: " + str(red_health), 1, WHITE)
     yellow_health_text = HEALTH_FONT.render("Health: " + str(yellow_health), 1, WHITE)
     WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 10))
     WIN.blit(yellow_health_text, (10, 10))
     
+    # draw bullets
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)
+        draw_bullet(bullet, BULLET_SPR, value_bul)
     for bullet in yellow_bullets:
-        pygame.draw.rect(WIN, YELLOW, bullet)
+        pygame.draw.rect(WIN, BLACK, bullet)
+        draw_bullet(bullet, BIGBULLET_SPR, value_big)
         
     pygame.display.update()
     
@@ -82,7 +149,7 @@ def yellow_handle_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_w] and yellow.y - VEL > 0: # move up
         yellow.y -= VEL
         
-def red_handle_movement(keys_pressed, red):
+def red_handle_movement(keys_pressed, red, value):
     if keys_pressed[pygame.K_LEFT] and red.x - VEL > BORDER.x + BORDER.width + 10: # move left
         red.x -= VEL
     if keys_pressed[pygame.K_RIGHT] and red.x + VEL + red.width < WIDTH + 10:  # move right
@@ -91,6 +158,8 @@ def red_handle_movement(keys_pressed, red):
         red.y += VEL
     if keys_pressed[pygame.K_UP] and red.y - VEL > 0: # move up
         red.y -= VEL
+    WIN.blit(FIGHTER_SPR[0], (0, 0))
+    draw_spaceship(red, FIGHTER_SPR, value)
         
 def handle_bullet(red_bullets, yellow_bullets, yellow, red):
     for bullet in yellow_bullets:
@@ -109,7 +178,6 @@ def handle_bullet(red_bullets, yellow_bullets, yellow, red):
         elif bullet.x < 0:
             red_bullets.remove(bullet)
 
-
 def main():
     
     # rectangle of spaceship
@@ -126,6 +194,12 @@ def main():
     
     clock = pygame.time.Clock()
     run = True
+    
+    value_bul = [0]
+    value_big = [0]
+    value_bg = [0]
+    value_fighter = [0]
+    value_bomber = [0]
     
     # game loop
     while run:
@@ -167,18 +241,16 @@ def main():
             draw_winner(winner_text)
             break        
         
-        # print(yellow_bullets, red_bullets)
-        
         # movement of spaceship
         keys_pressed = pygame.key.get_pressed()
         yellow_handle_movement(keys_pressed, yellow)
-        red_handle_movement(keys_pressed, red)
+        red_handle_movement(keys_pressed, red, value_fighter)
         
         # bullet fired
         handle_bullet(red_bullets, yellow_bullets, yellow, red)
         
         # draw window
-        draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health)
+        draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, value_bul, value_big, value_bg, value_fighter, value_bomber)
         
     # return main() when the game is over
     main()
