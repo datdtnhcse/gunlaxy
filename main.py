@@ -21,7 +21,6 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 
 # velocity, fps,... all of game experiment
-BORDER = pygame.Rect(WIDTH // 2 - 5, 0, 10, HEIGHT)
 FPS = 60
 VEL = 5
 BULLET_VEL = 10
@@ -116,8 +115,7 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
     
     # draw the window
     draw_space(BG_SPR, value_bg)
-    pygame.draw.rect(WIN, BLACK, BORDER)
-    
+        
     # draw the spaceship
     draw_spaceship(yellow, BOMBER_SPR, value_bomber)
     draw_spaceship(red, FIGHTER_SPR, value_fighter)
@@ -141,7 +139,7 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
 def yellow_handle_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_a] and yellow.x - VEL > 0: # move left
         yellow.x -= VEL
-    if keys_pressed[pygame.K_d] and yellow.x + VEL + yellow.width < BORDER.x: # move right
+    if keys_pressed[pygame.K_d] and yellow.x + VEL + yellow.width < WIDTH // 2 - 5: # move right
         yellow.x += VEL
     if keys_pressed[pygame.K_s] and yellow.y + VEL + yellow.height < HEIGHT - 15: # move down
         yellow.y += VEL
@@ -149,7 +147,7 @@ def yellow_handle_movement(keys_pressed, yellow):
         yellow.y -= VEL
         
 def red_handle_movement(keys_pressed, red, value):
-    if keys_pressed[pygame.K_LEFT] and red.x - VEL > BORDER.x + BORDER.width + 10: # move left
+    if keys_pressed[pygame.K_LEFT] and red.x - VEL > WIDTH // 2 - 5 + 10 + 10: # move left
         red.x -= VEL
     if keys_pressed[pygame.K_RIGHT] and red.x + VEL + red.width < WIDTH + 10:  # move right
         red.x += VEL
@@ -209,7 +207,6 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 
-
             # keydown
             if event.type == pygame.KEYDOWN:
                 # fire
