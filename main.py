@@ -1,5 +1,6 @@
 import pygame
 import os
+import sys
 
 pygame.font.init()
 pygame.mixer.init()
@@ -206,6 +207,8 @@ def main():
             # quit game
             if event.type == pygame.QUIT:
                 run = False
+                pygame.quit()
+                sys.exit()
                 
             # keydown
             if event.type == pygame.KEYDOWN:
@@ -235,7 +238,8 @@ def main():
             winner_text = "Fighter Wins!"
         if winner_text != "":
             draw_winner(winner_text)
-            main()     
+            # main()
+            break
         
         # movement of spaceship
         keys_pressed = pygame.key.get_pressed()
@@ -249,7 +253,7 @@ def main():
         draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, value_bul, value_big, value_bg, value_fighter, value_bomber)
         
     # return main() when the game is over
-    pygame.quit()
+    main()
     
 if __name__ == "__main__":
     main()
