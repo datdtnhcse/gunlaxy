@@ -87,7 +87,7 @@ def draw_winner(winner_text):
     WIN.blit(draw_text, (WIDTH / 2 - draw_text.get_width() / 2, HEIGHT / 2 - draw_text.get_height() / 2))
     pygame.display.update()
     pygame.time.delay(3000)
-    
+       
 def draw_bullet(bullet, BULLET_SPR, value):
     if value[0] >= len(BULLET_SPR):
         value[0] = 0
@@ -238,7 +238,6 @@ def main():
             winner_text = "Fighter Wins!"
         if winner_text != "":
             draw_winner(winner_text)
-            # main()
             break
         
         # movement of spaceship
@@ -251,7 +250,6 @@ def main():
         
         # draw window
         draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, value_bul, value_big, value_bg, value_fighter, value_bomber)
-        
     # return main() when the game is over
     main()
     
